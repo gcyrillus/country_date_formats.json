@@ -26,10 +26,10 @@ then the average converted function avoiding use of Class "IntlDateFormatter".
 
 ```
 		public function timeToLocalDate($time){
-			$plxMotor = plxMotor::getInstance();
-			$locale = $plxMotor->aConf['default_lang']; // Locale
-			$timezone = $plxMotor->aConf['timezone']; // Fuseau horaire
-			/*$format = new IntlDateFormatter($locale,IntlDateFormatter::SHORT,IntlDateFormatter::SHORT,$timezone	);
+			$plxMotor = plxMotor::getInstance();// ! Outside Pluxml, you do not need this 
+			$locale = $plxMotor->aConf['default_lang']; // Locale ! Outside Pluxml, you have to find another way to get the language set on front-end
+			/*$timezone = $plxMotor->aConf['timezone']; // Fuseau horaire
+			$format = new IntlDateFormatter($locale,IntlDateFormatter::SHORT,IntlDateFormatter::SHORT,$timezone	);
 			$date_locale = $format->format($time);
 			return $date_locale;	*/
 			$formats=json_decode( file_get_contents(PLX_PLUGINS.basename(__DIR__).'/lang/country_date_formats.json') );
